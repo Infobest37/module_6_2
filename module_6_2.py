@@ -22,9 +22,9 @@ class Vehicle:
               f"Владелец: {self.owner}")
 
     def set_color(self, new_color):
-        self.__color = new_color.upper()
-        if new_color.upper() in self._COLOR_VARIANTS:
-            self._COLOR_VARIANTS.remove(new_color.upper())
+        self.__color = new_color.capitalize()
+        if new_color.capitalize() in self._COLOR_VARIANTS:
+            self._COLOR_VARIANTS.remove(new_color.capitalize())
 
         else:
             print(f"{new_color} цвет отсутствует в наличии")
@@ -49,7 +49,7 @@ vehicle1.info()
 
 # # Меняем свойства (в т.ч. вызывая методы)
 vehicle1.set_color('Розовый')
-vehicle1.set_color('КРАСНЫЙ')
+vehicle1.set_color('красный')
 vehicle1.owner = 'Vasyok'
 #
 # # Проверяем что поменялось
