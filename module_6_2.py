@@ -1,10 +1,11 @@
 class Vehicle:
-    def __init__(self, owner, __model, __engine_power, __color):
+    _COLOR_VARIANTS = ["Синий", "красный", "Желтый", "Оранжевый"]
+    def __init__(self, owner, model, engine_power, color):
         self.owner = str(owner)
-        self.__model = str(__model)
-        self.__engine_power = int(__engine_power)
-        self.__color = str(__color)
-        self._COLOR_VARIANTS = ["Синий", "красный", "Желтый", "Оранжевый"]
+        self.__model = str(model)
+        self.__engine_power = int(engine_power)
+        self.__color = str(color)
+
 
 
     def get_model(self, __model):
@@ -20,24 +21,30 @@ class Vehicle:
              print(f"Выладелец: {self.owner}")
 
     def set_color(self, new_color):
+        if new_color.lower() in Vehicle._COLOR_VARIANTS:
+            print(f"Урааа мы на конец-то перекрасили машину с {self.__color} на {new_color}")
+            self.__color = new_color
+
+        else:
+            print(f"{new_color} отсутвует в наличии")
 
 
-        for color in self._COLOR_VARIANTS:
-            if color.capitalize() == new_color.capitalize():
-                print(f"Урааа мы на конец-то перекрасили машину с {self.__color} на {new_color}")
-                self.__color = new_color
-                return
-        for color in self._COLOR_VARIANTS:
-            if color.capitalize() != new_color.capitalize():
-                print(f"{new_color} отсутвует в наличии")
-                return
+        # for color in self._COLOR_VARIANTS:
+        #     if color.capitalize() == new_color.capitalize():
+        #         print(f"Урааа мы на конец-то перекрасили машину с {self.__color} на {new_color}")
+        #         self.__color = new_color
+        #         return
+        # for color in self._COLOR_VARIANTS:
+        #     if color.capitalize() != new_color.capitalize():
+        #         print(f"{new_color} отсутвует в наличии")
+        #         return
 
 
 
 
 class Sedan(Vehicle):
-    def __init__(self, owner, __model, __engine_power, __color, __PASSENGERS_LIMIT = 5):
-        super().__init__(owner, __model, __engine_power, __color)
+    def __init__(self, owner, model, engine_power, color, __PASSENGERS_LIMIT = 5):
+        super().__init__(owner, model, engine_power, color)
         self.__PASSENGERS_LIMIT = int(__PASSENGERS_LIMIT)
 
 
